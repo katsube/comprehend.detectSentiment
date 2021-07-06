@@ -20,7 +20,7 @@ $ node sample.js
 
 dataフォルダ内にある小説を1行ずつ分析にかけます。
 ```shellsession
-$ node analytics.js
+$ node analytics.js | sort -n
 ```
 
 
