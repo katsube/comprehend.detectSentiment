@@ -1,5 +1,6 @@
 /**
- * ファイルを1行ずつ感情分析にかける
+ * Amazon Comprehendで感情分析
+ * ファイルを1行ずつ感情分析にかける編
  *
  * @version 1.0.0
  * @author M.Katsube

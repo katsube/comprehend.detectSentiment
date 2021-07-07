@@ -18,7 +18,7 @@ $ npm install
 $ node sample.js
 ```
 
-dataフォルダ内にある小説を1行ずつ分析にかけます。
+dataフォルダ内にある小説などの各種ファイルを1行ずつ分析にかけます。
 ```shellsession
 $ node analytics.js | sort -n
 ```
