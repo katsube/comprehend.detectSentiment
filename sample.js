@@ -1,3 +1,10 @@
+/**
+ * Amazon Comprehendで感情分析
+ *
+ * @version 1.0.0
+ * @author M.Katsube
+ */
+
 const AWS = require('aws-sdk')
 
 // .envの内容を環境変数化

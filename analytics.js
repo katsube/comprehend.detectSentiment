@@ -7,13 +7,16 @@
 
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const sleep = (time) => {
-  return new Promise((resolve, reject) => {
-      setTimeout(() => {
-          resolve()
-      }, time)
-  })
-}
+
+// 解析対象のファイルを決定
+const FILE_LIST = [
+  'data/novel/hashire_merosu.txt',      // 0:走れメロス
+  'data/novel/gongitsune.txt',          // 1:ごん狐
+  'data/novel/gingatetsudono_yoru.txt', // 2:銀河鉄道の夜
+  'data/etc/kaomoji.txt',   // 3:顔文字
+  'data/etc/tweet.txt',     // 4:ツイート
+]
+const FILE = FILE_LIST[3]
 
 // .envの内容を環境変数化
 require('dotenv').config()
@@ -26,12 +29,20 @@ AWS.config.update({
 })
 
 // ファイル読み込み
-const lines = fs.readFileSync('data/gingatetsudono_yoru.txt', 'utf8')
+const lines = fs.readFileSync(FILE, 'utf8')
                   .toString()
                   .split('\n')
 
 // Comprehendで解析
 async function requestComprehend(){
+  const sleep = (time) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve()
+        }, time)
+    })
+  }
+
   const comprehend = new AWS.Comprehend({apiVersion: '2017-11-27'});
   for(let i=0; i<lines.length; i++ ){
     if( lines[i].length <= 0  ){
